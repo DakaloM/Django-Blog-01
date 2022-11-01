@@ -1,0 +1,113 @@
+.articles {
+    width: 90%;
+    margin: auto;
+    background-color: rgb(48, 75, 112);
+    color: white;
+    margin-top: 25px;
+    padding: 0 0 25px 0;
+}
+.articles .title {
+    font-weight: bold;
+   
+}
+
+.articles .intro {
+
+}
+
+.articles .date {
+   
+}
+
+
+.articles h4 {
+    width: 100%;
+    text-align: center;
+    padding: 50px 0 20px 0;
+}
+
+.articles h6 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+
+.articles ul {
+    list-style-type: decimal;
+    align-items: center;
+}
+
+.articles ul li {
+    
+    align-items: center;
+    padding: 10px 25px;
+    margin: 0;
+}
+
+.article {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.article-info {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-info img {
+    width: 150px;
+    margin-right: 25px;
+}
+
+@media all and (max-width: 992px) {
+    .article-info {
+        width: 70%;
+        display: block;
+        align-items: center;
+    }
+    img{
+        margin-bottom: 20px;
+    }
+    .user-actions {
+        display: block;
+        width: 20%;
+    }
+
+    .user-actions a {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+
+}
+
+@media all and (max-width: 500px){
+    .user-actions {
+        display: block;
+        width: 30%;
+    }
+}
+
+@media all and (max-width: 430px) {
+    .article {
+        width: 100%;
+        display: block;
+    }
+    .article-info img {
+        width: 90%;
+    }
+    .article-info {
+        width: 100%;
+    }
+
+    .user-actions {
+        display: block;
+        width: 100%;
+    }
+}

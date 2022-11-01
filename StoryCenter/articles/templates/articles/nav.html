@@ -1,0 +1,51 @@
+<header class="header bg-light">
+  <nav class="nav-bar ">
+        <div class="nav-wrapper">
+          <a class="logo" href="{% url 'home' %}">StoryCenter</a>
+          <ul class="navbar-menu">
+
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{% url 'list_articles' %}">Articles</a>
+            </li>
+
+            
+            {%if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{% url 'add_article' %}">Add Articles</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{% url 'my_articles'  %}">My Articles</a>
+            </li>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+
+
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{% url 'logout' %}">Logout</a>
+              </li>
+
+              {%if user.is_superuser %}
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="{% url 'admin' user.id  %}">Admin</a>
+                </li>
+              {% endif %}
+
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="{% url 'login' %}">Login</a>
+              </li>
+            {% endif %}
+                
+          </ul>
+
+          
+        </div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+    </nav>
+  </header>

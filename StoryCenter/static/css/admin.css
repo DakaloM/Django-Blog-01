@@ -1,0 +1,84 @@
+.articles{
+    width:60%;
+    position:relative;
+}
+
+
+.information-tab {
+    width:40%;
+}
+.user {
+    width:90%;
+    align-items:center!important;
+}
+.user ul{
+    list-style-type: decimal;
+    align-items: center;
+}
+
+.user-wrapper {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgb(227, 227, 227);
+    position: relative;
+}
+
+.user-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-actions a {
+    margin: 5px 0;
+}
+.user-info {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    align-items: center;
+    
+}
+.last-seen {
+    position: absolute;
+    bottom:0;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    display: block;
+}
+.user-info p{
+    line-height: .7;
+    color: rgb(127, 127, 127);
+    font-weight: 500;
+}
+.article-content {
+    display: flex;
+    flex-direction: column;
+}
+.article-header-details {
+    margin-bottom: 50px;
+}
+
+.article-footer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom:0;
+    right:0;
+}
+
+.article-footer a {
+    margin: 0 10px ;
+    width: 100px;
+}
+.admin-stats {
+    width: 35%;
+    margin: 0 auto;
+}
+.stats-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    border-bottom: solid 1px orange;
+    padding: 0 5px;
+}

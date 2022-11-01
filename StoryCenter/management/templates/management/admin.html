@@ -1,0 +1,93 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/my_articles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+{% endblock %}
+{% block title %}
+    All Articles
+{% endblock %}
+
+
+{% block content %}
+<div class="bottom-section">
+    <div class="action-bar">
+        <div class="admin-stats">
+            <div class="stats-item">
+                <h5>Total Stories: </h5>
+                <span>{{number_of_articles}}</span>
+            </div>
+
+            <div class="stats-item">
+                <h5>Total Users: </h5>
+                <span>{{number_of_authors}}</span>
+            </div>
+
+            <div class="stats-item">
+                <h5>Staff Members: </h5>
+                <span>{{number_of_staff}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="article-section">
+        <div class="articles">
+            {% for article in article_list %}
+                <div class="article">
+                    <div class="article-image">
+                        <img class="article-image-image" src="{{article.story_image.url}}" alt="">
+                    </div>
+
+                    <div class="article-content">
+                        <div class="article-header-details">
+                            <h5 class="category">{{article.category}}</h5>
+                            <h5 class="title"><a href="{% url 'article' article.id %}">{{article.topic}}</a></h5>
+
+                            <div class="admin-stuff">
+                                <p class="author-name">{{article.author}}</p>
+                                <p>{{article.date_time}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="article-footer">
+                            <a class="btn btn-read-more" href="{% url 'edit_article' article.id %}">Edit</a>
+                            <a class="btn btn-read-more" href="{% url 'delete_article' article.id %}">Delete</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="information-tab">
+            <div class="user">
+               <ul>
+                    {% for user in user_list%}
+                    <li>
+                        <div class="user-wrapper">
+                            <div class="user-info">
+                                <p>{{user.username}}</p>
+                                <p>{{user.first_name}}</p>
+                                <p>{{user.last_name}}</p>
+                                <p></p>
+                                <p class="last-seen">Last seen: {{user.last_login}}</p>
+                            </div>
+                            <div class="user-actions">
+                                {% if user.is_staff %}
+                                    <a class="btn btn-read-more" href="{% url 'demote' user.id %}">Demote</a>
+                                {% else %}
+                                    <a class="btn btn-read-more" href="{% url 'promote' user.id %}">Promote</a>
+                                {% endif %}
+                                <a class="btn btn-read-more" href="">Delete</a>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+               </ul>
+            </div>
+            
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+.container {
+    padding: 0 10%;
+}
+
+label {
+    color: rgb(138, 138, 138) !important;
+}
+
+input[type="text"], select, textarea, input[type="password"]{
+    border-radius: 0!important;   
+    color: rgb(138, 138, 138) !important;
+    height: 50px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+}
+input[type="text"]::placeholder , 
+select::placeholder , 
+textarea::placeholder , 
+input[type="password"]::placeholder,
+textarea::placeholder {
+    color: rgb(189, 189, 189)!important;
+}
+textarea {
+    height:300px;
+    font-size: 20px!important;
+
+}
+
+input[type="text"], select:focus {
+    outline: none ;
+}
+.form-container .btn-read-more {
+    width: 100% !important;
+    border-radius:0 !important;
+    padding: 15px 0; 
+    font-size: 20px;
+    font-size: 20px!important;
+}
+.form-input {
+    margin:  40px 0 !important;
+    background: white;
+}
+.form-input input {
+    outline: none;
+    background-color: white !important;
+}
+
+.link {
+    margin-top: 25px;;
+}
+.login-form {
+    width: 65%;
+    margin: 0 auto;
+    border: 1px solid rgb(228, 228, 228); 
+    padding: 25px;
+}
+.login-form .btn-read-more {
+    width: 100%;
+    border-radius:0;
+    padding: 15px 0;
+}

@@ -1,0 +1,135 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+
+{% block content %}
+     <div class=" wrapper "><!--product  -->
+
+        <button class="prev-btn">
+            <img src="{% static 'images/arrow.png' %}" alt="">
+        </button>
+
+        <button class="next-btn">
+            <img src="{% static 'images/arrow.png' %}" alt="">
+        </button>
+        
+        <div class="slider-container">
+            {% for story in latest_stories_list %}
+                
+                    <div class=" story-card slide">
+                        <img src="{{story.story_image.url}}" class="slide-image">
+
+                        <div class="card-body">
+                            <p class="category">{{story.category}}</p>
+                            <div class="story-info">
+                            <p class="story-author">{{story.author.username}}</p>
+                            <p class="story-date">{{story.date_time}}</p>
+                            </div>
+                            <a href="{% url 'article' story.id %}" class="btn btn-read-more">Read More</a>
+                        </div>
+                    </div>
+                
+            {% endfor %}
+        </div>
+
+        
+    </div>
+
+
+    <div class="bottom-section">
+        <div class="action-bar">
+            <h3>Add Your Own Story</h3>
+            <a class=" btn btn-read-more add-story" href="{% url 'add_article' %}">Add Story</a>
+        </div>
+        <div class="article-section">
+            
+            <div class="articles">
+                <div class="closed">
+                    {% for article in article_list %}
+                        <div class="article">
+                            <div class="article-image">
+                                <img class="article-image-image" src="{{article.story_image.url}}" alt="">
+                            </div>
+
+                            <div class="article-content">
+                                <div class="article-header-details">
+                                    <h5 class="category">{{article.category}}</h5>
+                                    <h5 class="title">{{article.topic}}</h5>
+
+                                    <div class="admin-stuff">
+                                        <p class="author-name">{{article.author}}</p>
+                                        <p>{{article.date_time}}</p>
+                                    </div>
+                                </div>
+                                <div class="story">
+                                    <p>
+                                        {{article.story|truncatechars:400}}
+                                    </p>
+                                    
+                                </div>
+                                <div class="article-footer">
+                                    <a class="btn btn-read-more" href="">Read more</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if paginator.num_pages > 1 %}
+                    <ul class="pagination">
+                        {% for i in paginator.page_range %}
+                            <li class="page-item {% if i == page_number %} active {% endif %}">
+                                <a class="page-link" href="?page={{i}}">{{i}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="information-tab">
+                <div class="form">
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <input class="" type="text" placeholder="search">
+                        <button class="btn-read-more btn-search" type="submit"><i class='bx bx-search-alt-2'></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="recent-posts">
+                    <h5>Recent Posts</h5>
+                    {% for article in latest_stories_list %}
+                        <div class="recent-post">
+                            <h5>{{article.topic}}</h5>
+                            <p>{{article.date_time}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="categories">
+                    <h5>Categories</h5>
+                    <ul>
+                        <li>
+                            <a href="{% url 'filter_articles' 'sport' %}">Sport</a><span class="count">{{sport_count}}</span>
+                        </li>
+                        <li>
+                            <a href="{% url 'filter_articles' 'travel' %}">Travel</a><span class="count">{{travel_count}}</span>
+                        </li>
+                        <li>
+                            <a href="{% url 'filter_articles' 'nature' %}">Nature</a><span class="count">{{nature_count}}</span>
+                        </li>
+                        <li>
+                            <a href="{% url 'filter_articles' 'lifestyle' %}">Lifestyle</a><span class="count">{{lifestyle_count}}</span>
+                        </li>
+                        <li>
+                            <a href="{% url 'filter_articles' 'other' %}">Other</a><span class="count">{{other_count}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

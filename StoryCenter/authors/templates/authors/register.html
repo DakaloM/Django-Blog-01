@@ -1,0 +1,28 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+
+{% endblock %}
+{% block title %}
+    Register Page
+{% endblock %}
+
+
+{% block content %}
+    
+    <div class="action-bar">
+        <h3>Register</h3>
+        <a class=" btn btn-read-more add-story" href="">Add Story</a>
+    </div>
+    <div class="form-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-read-more">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

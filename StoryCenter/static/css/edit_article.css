@@ -1,0 +1,44 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+label{
+    color: rgb(106, 106, 106)!important;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select, 
+textarea
+{
+    border-radius: 0!important;
+    height: 50px;
+    font-size: 17px!important;;
+    font-weight: 500!important;
+    letter-spacing: 1.5px;
+    color: rgb(157, 157, 157)!important;
+}
+textarea {
+    height: 250px;
+    margin-bottom: 35px;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder{
+    color: rgb(182, 182, 182);
+    letter-spacing: 1.5px;
+}
+
+.form-wrapper .btn-read-more {
+    width: 100%;
+    padding: 10px 0;
+    border-radius:0;
+    margin-top: 20px;
+    font-size: 20px;
+
+}
+input[type="file"]{
+    margin-top: 20px;
+}

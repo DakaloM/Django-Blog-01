@@ -1,0 +1,157 @@
+
+    
+.row{
+    margin-top: 30px;
+}
+
+.article-heading {
+    margin: 0 0 20px 0;
+}
+.topic {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #a0a0a0;
+    margin-bottom: 25px;
+}
+
+.intro {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+.article-heading p {
+    line-height: 0.5em;
+}
+
+.author-name {
+    color: #a0a0a0;
+    font-weight: bold;
+}
+
+.date {
+    color: #a0a0a0;
+    font-weight: bold;
+}
+.right {
+    margin-left: 100px;
+}
+.right-content-wrapper {
+    width: 75%;
+    margin: auto;
+}
+
+.article-image {
+    width: 100%;
+}
+
+.article-image img {
+    width: 100%;
+}
+
+.right-head {
+    margin-bottom: 40px;
+}
+.story-list {
+
+}
+
+.card-title {
+    margin-bottom: 10px;
+}
+.story-list-item {
+    margin-bottom: 20px;
+}
+
+
+@media all and (min-width: 1200px) and (max-width: 1400px) {
+    
+ .col-8 {
+    width: 70%;
+    margin: 0;
+ }
+
+ .col-3 {
+    width: 20%;
+ }
+
+ .right-content-wrapper {
+    width: 100%;
+    margin: 0;
+}
+
+
+}
+
+@media all and (max-width: 1200px) {
+    .row {
+        display: block;
+    }
+    .col-8 {
+        width: 100%;
+        margin-bottom: 50px;
+        border-bottom: 1px solid #a0a0a0;
+        padding-bottom: 30px;
+        
+    }
+
+    .col-3 {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .story-list-item {
+        display: flex;
+    }
+
+    .story-list-item img {
+        width: 200px;
+        margin-right: 30px;
+    }
+
+    .right-content-wrapper {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+@media all and (max-width: 768px) {
+    .row{
+        width: 100%;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+        padding: 0;
+        max-width: 700px;
+    }
+    .col-8 {
+        width: 100%;
+    }
+    .col-3 {
+        text-align: left;
+        width: 100%;
+        margin: 0; 
+    }
+    .story-list-item {
+        display: flex;
+        text-align: left;
+    }
+
+    .story-list-item img {
+        width: 250px;
+        margin-right: 30px;
+    }
+}
+
+@media all and (max-width: 590px) {
+
+    .story-list-item {
+        display: block;
+        text-align: left;
+    }
+
+    .story-list-item img {
+        margin-bottom: 25px;
+    }
+
+}

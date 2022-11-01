@@ -1,0 +1,135 @@
+header {
+    height: 100px;
+    align-items: center;
+}
+.nav-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    text-decoration: none;
+    color: black;
+}
+.nav-bar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.navbar-menu {
+    width: 60%;
+    list-style: none;
+    margin:0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+    border: 2px solid rgb(135, 135, 135);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.bar {
+    display: block;
+    width: 35px;
+    height: 3px;
+    margin: 7px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(135, 135, 135)
+}
+.nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.nav-link:hover,.logo:hover {
+    cursor: pointer;
+    color: orange;
+    
+}
+@media all and (max-width: 980px){
+    .hamburger{
+        display: block;
+    }
+    header {
+        
+        align-items: center;
+    }
+    .logo{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .nav-bar {
+        align-items: start;
+    }
+    .nav-wrapper{
+        flex-direction: column;
+        text-align: left;
+        padding: 0;
+        margin: 0;
+        align-items: start;
+    }
+    .navbar-menu {
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        margin-top: 25px;
+        flex-direction: column;
+        transition: 0.3s;
+ 
+    }
+    .navbar-menu.active {
+        left:10%;
+    }
+
+    .header-height {
+        height: 300px;
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        width: 100%;
+        margin: 5px 0;
+        text-align: left;
+    }
+}
+
+@media all and (max-width: 1203px) {
+    .navbar-menu {
+        width: 70%;
+        
+       
+    }
+}
+
+@media all and (max-width: 977px) {
+    .navbar-menu {
+        width: 75%;
+        
+       
+    }
+}
+
+@media all and (max-width: 868px){
+    
+}

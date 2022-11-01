@@ -1,0 +1,81 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile_style.css' %}">
+{% endblock %}
+
+{% block title %}
+    Login Page
+{% endblock %}
+
+
+{% block content %}
+   
+
+    <div class="profile">
+
+        <img class="profile-image" src="{{author.user.username}}" alt="">
+        <div class="profile-details">
+
+            <div class="mb-3 row">
+                <label for="username" class="col-sm-2 col-form-label">Username:</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="username" value="{{author.user.username}}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="email" class="col-sm-2 col-form-label">email:</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="email" value="{{author.user.email}}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="first_name" class="col-sm-2 col-form-label">First Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="first_name" value="{{author.user.first_name}}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="last_name" class="col-sm-2 col-form-label">Last Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="last_name" value="{{author.user.last_name}}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="address" class="col-sm-2 col-form-label">address:</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="address" value="{{author.address}}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="bio" class="col-sm-2 col-form-label">About:</label>
+                <div class="col-sm-10">
+                  
+                  <input type="text" readonly class="form-control-plaintext" id="bio" value="{{author.bio}}">
+                  
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="social-icons">
+            <a href=""><i class='bx bxl-facebook-circle'></i></a>
+            <a href=""><i class='bx bxl-instagram-alt' ></i></a>
+            <a href=""><i class='bx bxl-internet-explorer'></i></a>
+            <a href=""><i class='bx bxl-twitter' ></i></a>
+        </div>
+
+        <a href="{% url 'edit_profile' user.id %}" class="btn btn-edit-profile btn-primary">Submit</a>
+    </div>
+
+
+
+{% endblock %}

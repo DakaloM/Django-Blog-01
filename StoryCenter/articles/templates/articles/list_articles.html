@@ -1,0 +1,114 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/articles.css' %}">
+{% endblock %}
+
+{% block title %}
+    All Articles
+{% endblock %}
+
+
+{% block content %}
+<div class="bottom-section">
+    <div class="action-bar">
+        <h3>Add Your Own Story {{search}}</h3>
+        <a class=" btn btn-read-more add-story" href="{% url 'add_article' %}">Add Story</a>
+    </div>
+    <div class="article-section">
+        <div class="articles ">
+            <div class="grid-container">
+
+                {% for article in article_list %}
+                    <div class="article">
+                        <div class="article-image">
+                            <img class="article-image-image" src="{{article.story_image.url}}" alt="">
+                        </div>
+
+                        <div class="article-content">
+                            <div class="article-header-details">
+                                <h5 class="category">{{article.category}}</h5>
+                                <h5 class="title">{{article.topic|truncatechars:35}}</h5>
+
+                                <div class="admin-stuff">
+                                    <p class="author-name">{{article.author}}</p>
+                                    <p>{{article.date_time}}</p>
+                                </div>
+                            </div>
+                            <div class="story">
+                                <p>
+                                    {{article.story|truncatechars:400}}
+                                </p>
+                                
+                            </div>
+                            <div class="article-footer">
+                                <a class="btn btn-read-more" href="{% url 'article' article.id %}">Read more</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                {% endfor %}
+            </div>
+            
+            {% if paginator.num_pages > 1 %}
+            <ul class="pagination">
+                {% for i in paginator.page_range %}
+                    <li class="page-item {% if i == page_number %} active {% endif %}">
+                        <a class="page-link" href="?page={{i}}">{{i}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            
+        </div>
+        
+
+        <div class="information-tab">
+            <div class="form">
+                <form action="{% url 'search' %}" method="POST">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <input class="" type="text" placeholder="search" name='search'>
+                    <button class="btn-read-more btn-search" type="submit"><i class='bx bx-search-alt-2'></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="recent-posts">
+                <h5>Recent Posts</h5>
+                {% for article in latest_stories %}
+                    <div class="recent-post">
+                        <div class="post-image">
+                            <img src="{{article.story_image.url}}" alt="">
+                        </div>
+                        <h5><a class="link-topic" href="{% url 'article' article.id %}">{{article.topic}}</a></h5>
+                        <p>{{article.date_time}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="categories">
+                <h5>Categories</h5>
+                <ul>
+                    <li>
+                        <a href="{% url 'filter_articles' 'sport' %}">Sport</a><span class="count">{{sport_count}}</span>
+                    </li>
+                    <li>
+                        <a href="{% url 'filter_articles' 'travel' %}">Travel</a><span class="count">{{travel_count}}</span>
+                    </li>
+                    <li>
+                        <a href="{% url 'filter_articles' 'nature' %}">Nature</a><span class="count">{{nature_count}}</span>
+                    </li>
+                    <li>
+                        <a href="{% url 'filter_articles' 'lifestyle' %}">Lifestyle</a><span class="count">{{lifestyle_count}}</span>
+                    </li>
+                    <li>
+                        <a href="{% url 'filter_articles' 'other' %}">Other</a><span class="count">{{other_count}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

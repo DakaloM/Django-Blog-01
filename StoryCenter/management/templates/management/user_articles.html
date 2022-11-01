@@ -1,0 +1,44 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/user_articles.css' %}">
+{% endblock %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="articles">
+        
+        <h4>All articles belonging to: {{user.username}}</h4>
+        <h6>Number of articles: {{number_of_articles}}</h6>
+        <ul>
+            {% for article in article_list %}
+                <li >
+                    <div class="article">
+                        <div class="article-info">
+                            <img src="{{article.story_image.url}}" alt="">
+                            <p class="title">{{article.topic}}</p>
+                            <p class="intro">{{article.intro}}</p>
+                            <p class="date">{{article.date_time}}</p>
+                        </div>
+                        <div class="user-actions">
+                            
+                            <a href="{% url 'article' article.id %}" class="btn btn-primary">View</a>
+                            <a href="{% url 'edit_article' article.id %}" class="btn btn-secondary">Edit</a>
+                            <a href="{% url 'admin_delete_article' article.id %}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                    
+                </li>
+            {% endfor %}
+            
+        </ul>
+    
+    </div>
+
+{% endblock %}

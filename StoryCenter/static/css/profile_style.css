@@ -1,0 +1,52 @@
+.profile {
+    width: 60%;
+    margin:50px auto;
+    position: relative;
+    background-color: rgb(31, 37, 75);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+input[value]{
+    color: white;
+}
+.profile-image{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 50px;
+
+}
+.social-icons a,i {
+    text-decoration: none;
+    color: white;
+}
+.social-icons {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 25px;
+}
+.profile-details .row {
+    display: block;
+    text-align: left;
+    border: solid 1px #ccc;
+    
+}
+.row label {
+    width: 100%;
+}
+.profile-details {
+    width: 75%;
+    margin: auto;
+
+}
+
+.btn-edit-profile {
+    width: 90%;
+    margin: 50px auto;
+    position: relative;
+}

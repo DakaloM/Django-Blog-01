@@ -1,0 +1,27 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/edit_article.css' %}">
+
+{% endblock %}
+
+{% block title %}
+    Edit Article
+{% endblock %}
+
+
+{% block content %}
+    
+    <div class="action-bar">
+        <h3>Make Changes to you story</h3>
+        <a class=" btn btn-read-more add-story" href="{% url 'my_articles' %}">My Stories</a>
+    </div>
+
+    <div class="form-wrapper">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token%}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-read-more">Save</button>
+        </form>
+    </div>
+{% endblock %}

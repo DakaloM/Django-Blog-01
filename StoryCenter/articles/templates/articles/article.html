@@ -1,0 +1,72 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/article.css' %}">
+
+{% endblock %}
+
+{% block title %}
+    Article
+{% endblock %}
+
+
+{% block content %}
+<div class="bottom-section">
+    <div class="action-bar">
+        <h3>Add Your Own Story</h3>
+        <a class=" btn btn-read-more add-story" href="">Add Story</a>
+    </div>
+    <div class="article-section">
+        <div class="articles grid-container">
+                <div class="article">
+                    <div class="article-image">
+                        <img class="article-image-image" src="{{article.story_image.url}}" alt="">
+                    </div>
+
+                    <div class="article-content">
+                        <div class="article-header-details">
+                            <h5 class="category">{{article.category}}</h5>
+                            <h5 class="title">{{article.topic}}</h5>
+
+                            <div class="admin-stuff">
+                                <p class="author-name">{{article.author}}</p>
+                                <p>{{article.date_time}}</p>
+                            </div>
+                        </div>
+                        <div class="story">
+                            {% for paragraph in text_body_as_list %}
+                                <p>
+                                    {{paragraph}}
+                                </p>
+                            {% endfor %}
+                            
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+
+        </div>
+        {% if related_stories %}
+        <div class="information-tab">
+            
+            <div class="recent-posts">
+                
+                <h5>Related Stories</h5>
+                {% for article in related_stories %}
+                    <div class="recent-post">
+                        <div class="post-image">
+                            <img src="{{article.story_image.url}}" alt="">
+                        </div>
+                        <h5><a class="link-topic" href="{% url 'article' article.id %}">{{article.topic}}</a></h5>
+                        <p>{{article.date_time}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
