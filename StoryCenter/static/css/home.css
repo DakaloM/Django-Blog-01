@@ -26,6 +26,7 @@
 }
 
 .slider-container{
+    height: 450px;
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -40,7 +41,7 @@
 .story-card {
     flex: 0 0 auto;
     width: 32%;
-    height: 500px;
+    height: 100%;
     margin: 0 calc((100% - (32% * 3)) / 6);
     position: relative;
 }
@@ -261,7 +262,7 @@
 }
 
 .article {
-    border: 1px solid rgb(224, 224, 224);
+    border: 1px solid rgb(243, 243, 243);
     background-color: white;
     position: relative;
     margin-bottom: 25px;
@@ -449,4 +450,5 @@
     border-radius: 0%;
     align-items: center;
     padding: 15px 25px;
+    border-radius: 5px;
 }

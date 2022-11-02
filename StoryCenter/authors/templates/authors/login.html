@@ -12,7 +12,7 @@
 {% block content %}
     <div class="action-bar">
       <h3>Add Your Own Story</h3>
-      <a class=" btn btn-read-more add-story" href="">Add Story</a>
+      <a class=" btn btn-read-more add-story" href="{% url 'add_article' %}">Add Story</a>
     </div>
     <form class="login-form" action="" method="post">
         {% csrf_token %}

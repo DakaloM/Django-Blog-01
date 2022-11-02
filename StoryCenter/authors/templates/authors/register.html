@@ -13,14 +13,14 @@
     
     <div class="action-bar">
         <h3>Register</h3>
-        <a class=" btn btn-read-more add-story" href="">Add Story</a>
+        <a class=" btn btn-read-more add-story" href="{% url 'add_article' %}">Add Story</a>
     </div>
     <div class="form-container">
         <form action="" method="POST">
             {% csrf_token %}
 
             {{form.as_p}}
-
+            <p class="link">Already have an account? Login <a href="{% url 'login' %}">here</a></p>
             <button type="submit" class="btn btn-read-more">Submit</button>
         </form>
     </div>

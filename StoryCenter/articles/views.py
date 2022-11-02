@@ -253,7 +253,7 @@ def my_articles(request):
         other_count = count_data['other_count']
         
         context = {
-            'article_count': my_articles_count,
+            'number_of_articles': my_articles_count,
             'last_article': last_article,
             'article_list': article_list,
             'sport_count': sport_count,

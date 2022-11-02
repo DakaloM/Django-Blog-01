@@ -33,23 +33,26 @@ body {
 .center-text {
     text-align: center;
 }
-.social-icons {
-    margin-top: 35px;
-}
 
-.social-icons i {
-    font-size: 25px;
-    margin: 0 10px;
+.action-bar h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 4px;
+    background-color: orange;
+    padding: 10px 15px;
+    border-radius: 5px;;
 }
 
 footer{
-    left: 0;
+    display: flex;
     width: 100%;
-    background-color: rgb(85, 116, 227);
+    height:150px;
+    background-color:  #22333B;
     color: white;
     padding: 20px 0;
     position: absolute;
     bottom: 0;
+    align-items: center;
 }
 .auth {
     width: 100%;
