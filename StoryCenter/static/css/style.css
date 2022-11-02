@@ -3,9 +3,9 @@ body {
     margin: 0;
     padding: 0;
     position:relative;
-    min-height: 100vh;
     padding-bottom: 150px;
     background-color:white;
+    height:100%;
 }
 .count {
     background-color: orange!important;

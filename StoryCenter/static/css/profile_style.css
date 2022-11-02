@@ -1,52 +1,165 @@
+.container {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+}
 .profile {
-    width: 60%;
-    margin:50px auto;
-    position: relative;
-    background-color: rgb(31, 37, 75);
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    
-}
-input[value]{
-    color: white;
-}
-.profile-image{
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 50px;
-
-}
-.social-icons a,i {
-    text-decoration: none;
-    color: white;
-}
-.social-icons {
-    width: 50%;
+    width:100%;
     display: flex;
     justify-content: space-between;
-    margin: auto;
-    margin-top: 25px;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(227, 227, 227);
 }
-.profile-details .row {
-    display: block;
-    text-align: left;
-    border: solid 1px #ccc;
+
+.profile-navigator{
+    background-color: white;
+    width:35%;
+    margin: 0;
+    color: rgb(161, 161, 161);
+    font-weight: 700;
     
-}
-.row label {
-    width: 100%;
-}
-.profile-details {
-    width: 75%;
-    margin: auto;
-
-}
-
-.btn-edit-profile {
-    width: 90%;
-    margin: 50px auto;
     position: relative;
+    min-height: 90vh;
+    margin: 50px;
+
 }
+.names{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(222, 222, 222);
+    padding-bottom: 3px;
+}
+
+.profile-details {
+    width:60%;
+    margin: 50px;
+    background-color: white;
+}
+.bio {
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgb(222, 222, 222);
+}
+
+.profile-header{
+    width: 100px;
+    height: 100px;
+    margin: 15px auto;
+    border-radius: 50%;
+}
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.identity {
+    width: 60%;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.stats {
+    width: 75%;
+    margin: 25px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.articles-stats,
+.likes-stats,
+.comments-stats{
+    text-align: center;
+}
+
+.articles-stats h6,
+.likes-stats h6,
+.comments-stats h6{
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.articles-stats span,
+.likes-stats span,
+.comments-stats span{
+    background-color: orange;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    padding: 2px 6px 3px 5px;
+}
+
+
+.social-icons-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+ 
+}
+
+.social-icons {
+    width: 30%;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.social-icons a {
+    text-decoration: none;
+    color: rgb(193, 193, 192);
+    font-size: 30px;
+}
+.button-container{
+    width: 75% !important;
+    margin: 0 auto !important;
+    padding: 0;
+}
+.profile-edit {
+    margin: 0 auto !important;
+
+}
+
+.flex-form-divs {
+    display: flex;
+}
+.helptext {
+    display: none;
+}
+#id_password{
+    display: none;
+}
+
+.user-change-form, 
+
+.profile-change-form{
+    width: 50%;
+    padding: 0 20px;
+}
+.btn-read-more{
+    width: 100%;
+    margin-top: 25px;
+    padding: 10px 0;
+}
+
+.full-width-inputs{
+    padding: 0 20px;
+}
+
+.user-change-form p:nth-child(5){
+    display: none;
+}
+
+.profile-form{
+    padding: 20px 0;
+    border-radius: 10px;
+}
+
+/* ______________________________________________ */
+
+

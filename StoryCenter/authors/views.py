@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse
-from . forms import UserForm,  UpdateUserForm
 from django.contrib import messages
 from django.contrib.auth.models import User
+from . forms import ProfileForm, UserForm, UserUpdateForm
 from django.contrib.auth import authenticate, login, logout
+from articles.models import Article
+from . models import Profile
 
 # Create your views here.
 
@@ -45,7 +47,50 @@ def register(request):
     return render(request, 'authors/register.html', context)
 
 def user_profile(request,user_id):
-    author = User.objects.get(pk=user_id)
-    context = {'author':author}
-    return render(request, 'authors/profile.html', context)
+    
+    if request.user.is_authenticated:
+        user= User.objects.get(pk = user_id)
+        profile = Profile.objects.get(user=user)
+        article_count = Article.objects.all().filter(author=user).count()
+        if request.method == 'POST':
+            user_form = UserUpdateForm(request.POST or None, instance= user)
+            profile_form = ProfileForm(request.POST or None, instance=profile)
+            if user_form.is_valid() and profile_form.is_valid():
+                profile = profile_form.save(commit=False)
+                profile.bio = request.POST['bio']
+                profile.gender = request.POST['gender']
+                
+                
+                
+                user_form.save()
+                profile.save()
+                
+                print(profile.bio)
+                print(profile.gender)
+                print(profile.profile_image)
+                
+                return redirect('profile', user_id)
+            
+            context = {
+                
+                'user_form': user_form,
+                'profile_form': profile_form
+            }
+            return render(request, 'authors/profile.html', context)
+            
+        else:
+            user_form = UserUpdateForm(request.POST or None, instance=user)
+            profile_form = ProfileForm(request.POST or None, instance=profile)
+            
+            
+        context = {
+            'article_count': article_count,
+            'user_form': user_form,
+            'profile_form': profile_form,
+        }
+            
+        return render(request, 'authors/profile.html', context)
+    else:
+        messages.success(request,"You must be signed in to access this page")
+        return redirect('home')
 
