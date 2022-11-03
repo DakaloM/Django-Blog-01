@@ -64,7 +64,7 @@ class ProfileForm(ModelForm):
             'facebook_url':'',
             'twitter_url':'',
             'youtube_url':'',
-            'web_url':''
+            'web_url':'',
             
             
         }
@@ -78,6 +78,9 @@ class ProfileForm(ModelForm):
             'youtube_url': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Youtube link'}),
             'web_url': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Website Link'}),
             'bio': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Bio'}),
+            'profile_image': forms.FileInput(attrs={
+                'class': 'form-control', 'id': 'inputGroupFile02'
+                }),
         }
         
         

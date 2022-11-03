@@ -16,44 +16,100 @@
     <div class="profile">
 
       <div class="profile-navigator">
-        {% if user.profile.profile_image %}
-        <div class="profile-header">
-          <img src="{{user.profile.profile_image.url}}" alt="">
+       
 
-        </div>
+        {% if profile_user.profile.profile_image %}
+
+          <div class="profile-header">
+            <img src="{{profile_user.profile.profile_image.url}}" alt="">
+
+          </div>
+        {% else %}
+          {% if profile_user.profile.gender == "Male" %}
+            <div class="profile-header">
+              <img src="{% static 'images/male_avatar.jpg' %}" alt="">
+
+            </div>
+
+          {% elif profile_user.profile.gender == "Female" %}
+            <div class="profile-header">
+              <img src="{% static 'images/female_avatar.jpg' %}" alt="">
+
+            </div>
+
+          {% else %}
+            <div class="profile-header">
+              <img src="{% static 'images/default_avatar.jpg' %}" alt="">
+
+            </div>
+          {% endif %}
         {% endif %}
 
-        <div class="identity">
-          <p class="names">{{user.first_name}} {{user.last_name}}</p>
 
-          <p class="username">{{user.username}}</p>
-          <p class="email">{{user.email}}</p>
+        
+
+        <div class="identity">
+          <p class="names">{{profile_user.first_name}} {{profile_user.last_name}}</p>
+
+          <p class="username">{{profile_user.username}}</p>
+          <p class="email">{{profile_user.email}}</p>
 
           <p class="bio">
-            {{user.profile.bio|truncatechars:60}}
+            {{profile_user.profile.bio|truncatechars:60}}
           </p>
 
           <p class="gender">
-            {{user.profile.gender}}
+            {{profile_user.profile.gender}}
           </p>
         </div>
 
-        <div class="stats">
-
-          <div class="articles-stats">
+        <div class="articles-stats">
             <h6>Articles</h6>
             <span>{{article_count}}</span>
           </div>
 
-          <div class="likes-stats">
-            <h6>Likes</h6>
-            <span>10</span>
+        <div class="progress-stats">
+
+          <div class="stats-item">
+            <p class="label">Sport</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: {{sport_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{sport_progress}}%</div>
+            </div>
+
           </div>
 
-          <div class="comments-stats">
-            <h6>Comments</h6>
-            <span>10</span>
+          <div class="stats-item">
+            <p class="label">Travel</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: {{travel_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{travel_progress}}%</div>
+            </div>
+
           </div>
+
+          <div class="stats-item">
+            <p class="label">Nature</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: {{nature_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{nature_progress}}%</div>
+            </div>
+
+          </div>
+
+          <div class="stats-item">
+            <p class="label">Lifestyle</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: {{lifestyle_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{lifestyle_progress}}%</div>
+            </div>
+
+          </div>
+
+          <div class="stats-item">
+            <p class="label">Other</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: {{other_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{other_progress}}%</div>
+            </div>
+
+          </div>
+
 
         </div>
 
@@ -70,16 +126,13 @@
             <a href=""><i class='bx bxl-twitter' ></i></a>
           </div>
 
-          <div class="button-container">
-            <button type="submit" class="btn btn-read-more profile-edit ">Edit Profile</button>
-          </div>
           
         </div>
 
       </div>
 
       
-
+      {% if user.id == logged_user_id %}
       <div class="profile-details">
 
        
@@ -95,6 +148,9 @@
   
             </div>
             <div class="full-width-inputs">
+
+              
+
               {% if user.profile.gender == "Male" %}
               <select class="form-select mb-3" aria-label="Default select example" name= "gender">
                 <option selected value="Male">Male</option>
@@ -131,7 +187,7 @@
               </div>
               {% endif %}
 
-              <button type="submit" class="btn btn-read-more">Submit</button>
+              <button type="submit" class="btn btn-read-more">Save</button>
 
             </div>
             
@@ -144,7 +200,7 @@
 
 
       </div>
-
+      {% endif %}
 
         
 

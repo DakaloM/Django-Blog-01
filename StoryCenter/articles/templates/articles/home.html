@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <p class="category">{{story.category}}</p>
                             <div class="story-info">
-                            <p class="story-author">{{story.author.username}}</p>
+                            <p class="story-author"><a href="{% url 'profile' user.id %}">{{story.author.username}}</a></p>
                             <p class="story-date">{{story.date_time}}</p>
                             </div>
                             <a href="{% url 'article' story.id %}" class="btn btn-read-more">Read More</a>
@@ -61,7 +61,7 @@
                                     <h5 class="title">{{article.topic}}</h5>
 
                                     <div class="admin-stuff">
-                                        <p class="author-name">{{article.author}}</p>
+                                        <p class="author-name"><a href=""></a>{{article.author}}</p>
                                         <p>{{article.date_time}}</p>
                                     </div>
                                 </div>

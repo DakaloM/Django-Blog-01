@@ -6,22 +6,26 @@
 .profile {
     width:100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: stretch;
     margin: 0;
     padding: 0;
     background-color: rgb(227, 227, 227);
 }
-
+.profile-details {
+    border-radius: 10px;
+    width:60%;
+    margin: 50px;
+    background-color: white;
+}
 .profile-navigator{
+    border-radius: 10px;
     background-color: white;
     width:35%;
     margin: 0;
     color: rgb(161, 161, 161);
     font-weight: 700;
-    
     position: relative;
-    min-height: 90vh;
     margin: 50px;
 
 }
@@ -33,11 +37,7 @@
     padding-bottom: 3px;
 }
 
-.profile-details {
-    width:60%;
-    margin: 50px;
-    background-color: white;
-}
+
 .bio {
     letter-spacing: 2px;
     font-weight: 500;
@@ -98,14 +98,13 @@
 
 
 .social-icons-container {
-    position: absolute;
-    bottom: 20px;
     width: 100%;
+    margin-bottom: 25px;
  
 }
 
 .social-icons {
-    width: 30%;
+    width: 60%;
     margin: 5px auto;
     display: flex;
     justify-content: space-between;
@@ -114,6 +113,9 @@
     text-decoration: none;
     color: rgb(193, 193, 192);
     font-size: 30px;
+}
+.social-icons a:hover {
+    color: rgb(4, 3, 37) !important;
 }
 .button-container{
     width: 75% !important;
@@ -135,6 +137,27 @@
     display: none;
 }
 
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+    color: rgb(184, 184, 184);
+    font-weight: 600!important;
+}
+
+.profile-form input:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+    border: none;
+    outline: none!important;
+
+}
+
+.profile-form input::placeholder,
+.profile-form select::placeholder,
+.profile-form textarea::placeholder {
+    color: rgb(184, 184, 184);
+    font-weight: 400!important;
+}
 .user-change-form, 
 
 .profile-change-form{
@@ -156,10 +179,39 @@
 }
 
 .profile-form{
-    padding: 20px 0;
+    padding: 50px;
     border-radius: 10px;
 }
 
 /* ______________________________________________ */
 
+
+.progress-stats {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.stats-item{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+}
+.label {
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    font-weight: 400;
+    border-bottom: 1px solid rgb(240, 240, 240);
+}
+.progress{
+    width: 70%;
+    margin-left: 25px;
+}
+
+.progress-bar {
+    background-color: #22333B;
+}
 
