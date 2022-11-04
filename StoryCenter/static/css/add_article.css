@@ -1,6 +1,9 @@
 .container {
     padding: 0 10%;
 }
+.form-container{
+    margin-bottom: 35px;
+}
 
 label {
     color: rgb(138, 138, 138) !important;

@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 
 def admin(request, user_id):
     if request.user.is_authenticated:
-        if request.user.is_superuser:
+        if request.user.is_staff:
             article_list = Article.objects.all()
             user_list = User.objects.all()
             

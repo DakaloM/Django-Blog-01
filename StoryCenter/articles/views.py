@@ -309,7 +309,7 @@ def home(request):
         'lifestyle_count': lifestyle_count,
         'other_count': other_count,
     }
-    return render(request, 'articles/home.html/#article-section', context)
+    return render(request, 'articles/home.html', context)
 
 
 

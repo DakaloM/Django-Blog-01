@@ -54,9 +54,16 @@ def user_profile(request,user_id):
     instance, created = Profile.objects.get_or_create(user=user)
     article_count = Article.objects.all().filter(author=user).count()
     
+    facebook_url = user.profile.facebook_url
+    youtube_url = user.profile.youtube_url 
+    twitter_url = user.profile.twitter_url
+    web_url = user.profile.web_url
+    
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST or None, instance= user)
         profile_form = ProfileForm(request.POST or None, request.FILES or None, instance=instance)
+
+        
         if user_form.is_valid() and profile_form.is_valid():
             profile = profile_form.save(commit=False)
             profile.bio = request.POST['bio']
@@ -82,6 +89,10 @@ def user_profile(request,user_id):
         
         
         context = {
+            'facebook_url': facebook_url,
+            'youtube_url': youtube_url,
+            'twitter_url': twitter_url,
+            'web_url' : web_url,
             'profile_user': user,
             'logged_user_id': user_id,
             'sport_progress': progress_tracker(Article,user, "Sport"),

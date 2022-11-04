@@ -15,7 +15,7 @@
 <div class="bottom-section">
     <div class="action-bar">
         <h3>Add Your Own Story</h3>
-        <a class=" btn btn-read-more add-story" href="">Add Story</a>
+        <a class=" btn btn-read-more add-story" href="{% url 'add_article' %}">Add Story</a>
     </div>
     <div class="article-section">
         <div class="articles grid-container">
@@ -31,9 +31,15 @@
 
                             <div class="admin-stuff">
                                 <div class="admin-identity">
+                                    {% if article.author.profile.profile_image %}
                                     <div class="admin-identity-image">
                                         <img class="article-profile-image" src="{{article.author.profile.profile_image.url}}" alt="">
                                     </div>
+                                    {% else %}
+                                    <div class="admin-identity-image">
+                                        <img class="article-profile-image" src="{% static 'images/default_avatar.jpg' %}" alt="">
+                                    </div>
+                                    {% endif %}
                                     <p class="author-name"><a class="author-link" href="{% url 'profile' article.author.id %}">{{article.author.first_name}}</a></p>
                                 </div>
                                 <p class="time">{{article.date_time}}</p>

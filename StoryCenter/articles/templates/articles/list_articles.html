@@ -33,9 +33,15 @@
 
                                 <div class="admin-stuff">
                                     <div class="admin-identity">
-                                        <div class="admin-identity-image">
-                                            <img class="article-profile-image" src="{{article.author.profile.profile_image.url}}" alt="">
-                                        </div>
+                                        {% if article.author.profile.profile_image %}
+                                            <div class="admin-identity-image">
+                                                <img class="article-profile-image" src="{{article.author.profile.profile_image.url}}" alt="">
+                                            </div>
+                                        {% else %}
+                                            <div class="admin-identity-image">
+                                                <img class="article-profile-image" src="{% static 'images/default_avatar.jpg' %}" alt="">
+                                            </div>
+                                        {% endif %}
                                         <p class="author-name"><a class ="author-link" href="{% url 'profile' article.author.id %}">{{article.author.first_name}}</a></p>
                                     </div>
                                     <p class="time">{{article.date_time}}</p>

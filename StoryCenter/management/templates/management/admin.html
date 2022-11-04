@@ -87,7 +87,7 @@
                                 {% else %}
                                     <a class="btn btn-read-more" href="{% url 'promote' user.id %}">Promote</a>
                                 {% endif %}
-                                <a class="btn btn-read-more" href="">Delete</a>
+                                <a class="btn btn-read-more" href="{% url 'delete_user' user.id %}">Delete</a>
                             </div>
                         </div>
                     </li>
