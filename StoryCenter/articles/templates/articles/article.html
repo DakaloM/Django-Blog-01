@@ -30,8 +30,13 @@
                             <h5 class="title">{{article.topic}}</h5>
 
                             <div class="admin-stuff">
-                                <p class="author-name">{{article.author}}</p>
-                                <p>{{article.date_time}}</p>
+                                <div class="admin-identity">
+                                    <div class="admin-identity-image">
+                                        <img class="article-profile-image" src="{{article.author.profile.profile_image.url}}" alt="">
+                                    </div>
+                                    <p class="author-name"><a class="author-link" href="{% url 'profile' article.author.id %}">{{article.author.first_name}}</a></p>
+                                </div>
+                                <p class="time">{{article.date_time}}</p>
                             </div>
                         </div>
                         <div class="story">

@@ -65,7 +65,7 @@
 
         <div class="articles-stats">
             <h6>Articles</h6>
-            <span>{{article_count}}</span>
+            <span class="count">{{article_count}}</span>
           </div>
 
         <div class="progress-stats">
@@ -73,7 +73,7 @@
           <div class="stats-item">
             <p class="label">Sport</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: {{sport_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{sport_progress}}%</div>
+              <div class="progress-bar" role="progressbar" style="width: {{sport_progress|floatformat:2}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{sport_progress}}%</div>
             </div>
 
           </div>
@@ -81,7 +81,7 @@
           <div class="stats-item">
             <p class="label">Travel</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: {{travel_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{travel_progress}}%</div>
+              <div class="progress-bar" role="progressbar" style="width: {{travel_progress|floatformat:2}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{travel_progress}}%</div>
             </div>
 
           </div>
@@ -89,7 +89,7 @@
           <div class="stats-item">
             <p class="label">Nature</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: {{nature_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{nature_progress}}%</div>
+              <div class="progress-bar" role="progressbar" style="width: {{nature_progress|floatformat:2}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{nature_progress}}%</div>
             </div>
 
           </div>
@@ -97,7 +97,7 @@
           <div class="stats-item">
             <p class="label">Lifestyle</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: {{lifestyle_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{lifestyle_progress}}%</div>
+              <div class="progress-bar" role="progressbar" style="width: {{lifestyle_progress|floatformat:2}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{lifestyle_progress}}%</div>
             </div>
 
           </div>
@@ -105,7 +105,7 @@
           <div class="stats-item">
             <p class="label">Other</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: {{other_progress}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{other_progress}}%</div>
+              <div class="progress-bar" role="progressbar" style="width: {{other_progress|floatformat:2}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{other_progress}}%</div>
             </div>
 
           </div>

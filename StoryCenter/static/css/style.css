@@ -64,3 +64,39 @@ footer{
     width: 30%;
 
 }
+.admin-identity{
+    display: flex;
+    align-items: center;
+
+}
+.admin-identity-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.author-name{
+    padding: 0;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.time{
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.article-profile-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.author-link {
+    text-decoration: none;
+    font-weight: bold;
+}
+.author-link:hover {
+    text-decoration: underline;
+}

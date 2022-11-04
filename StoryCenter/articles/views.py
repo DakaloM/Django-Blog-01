@@ -49,44 +49,6 @@ def filter_my_articles(request, name):
 
 
 
-def filter_articles(request, name):
-    
-    filter_txt = name.title()
-
-    article_list = Article.objects.all().filter(category=filter_txt).order_by('-date_time')
-    all_articles = Article.objects.all().order_by('-date_time')
-    latest_story_list = []
-    for article in all_articles:
-        latest_story_list.append(article)
-        if len(latest_story_list) >= 3:
-            break;
-        
-    paginator = Paginator(article_list, per_page= 2)
-    page_number = request.GET.get('page',1)
-    page_obj = paginator.get_page(page_number)
-    #getting number of articles for each category
-    count_data = get_article_count(Article)
-    
-    sport_count = count_data['sport_count']
-    travel_count = count_data['travel_count']
-    nature_count = count_data['nature_count'] 
-    lifestyle_count = count_data['lifestyle_count']
-    other_count = count_data['other_count']
-    
-    context = {
-    
-        'page_number': int(page_number),
-        'paginator': paginator,
-        'latest_stories': latest_story_list,
-        'article_list': page_obj.object_list,
-        'sport_count': sport_count,
-        'travel_count':travel_count,
-        'nature_count': nature_count,
-        'lifestyle_count': lifestyle_count,
-        'other_count': other_count,
-    }
-    
-    return render(request,'articles/list_articles.html', context)
 
 def search_my_article(request):
     if request.method == "POST":
@@ -235,6 +197,45 @@ def article(request, article_id):
     
     return render(request, 'articles/article.html', context)
 
+def filter_articles(request, name):
+    
+    filter_txt = name.title()
+
+    article_list = Article.objects.all().filter(category=filter_txt).order_by('-date_time')
+    all_articles = Article.objects.all().order_by('-date_time')
+    latest_story_list = []
+    for article in all_articles:
+        latest_story_list.append(article)
+        if len(latest_story_list) >= 3:
+            break;
+        
+    paginator = Paginator(article_list, per_page= 2)
+    page_number = request.GET.get('page',1)
+    page_obj = paginator.get_page(page_number)
+    #getting number of articles for each category
+    count_data = get_article_count(Article)
+    
+    sport_count = count_data['sport_count']
+    travel_count = count_data['travel_count']
+    nature_count = count_data['nature_count'] 
+    lifestyle_count = count_data['lifestyle_count']
+    other_count = count_data['other_count']
+    
+    context = {
+    
+        'page_number': int(page_number),
+        'paginator': paginator,
+        'latest_stories': latest_story_list,
+        'article_list': page_obj.object_list,
+        'sport_count': sport_count,
+        'travel_count':travel_count,
+        'nature_count': nature_count,
+        'lifestyle_count': lifestyle_count,
+        'other_count': other_count,
+    }
+    
+    return render(request,'articles/list_articles.html', context)
+
 def my_articles(request):
     if request.user.is_authenticated:
         user = request.user
@@ -245,6 +246,9 @@ def my_articles(request):
         last_article = article_list.first()
         #getting number of articles for each category
         
+        paginator = Paginator(article_list, per_page= 3)
+        page_number = request.GET.get('page',1)
+        page_obj = paginator.get_page(page_number)
         
         sport_count = count_data['sport_count']
         travel_count = count_data['travel_count']
@@ -253,9 +257,11 @@ def my_articles(request):
         other_count = count_data['other_count']
         
         context = {
+            'page_number': int(page_number),
+            'paginator': paginator,
             'number_of_articles': my_articles_count,
             'last_article': last_article,
-            'article_list': article_list,
+            'article_list': page_obj.object_list,
             'sport_count': sport_count,
             'travel_count': travel_count,
             'nature_count': nature_count,
@@ -303,7 +309,7 @@ def home(request):
         'lifestyle_count': lifestyle_count,
         'other_count': other_count,
     }
-    return render(request, 'articles/home.html', context)
+    return render(request, 'articles/home.html/#article-section', context)
 
 
 

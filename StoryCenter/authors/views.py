@@ -49,53 +49,51 @@ def register(request):
 
 def user_profile(request,user_id):
     
-    if request.user.is_authenticated:
-        user= User.objects.get(pk = user_id)
-        instance, created = Profile.objects.get_or_create(user=user)
-        article_count = Article.objects.all().filter(author=user).count()
-        
-        if request.method == 'POST':
-            user_form = UserUpdateForm(request.POST or None, instance= user)
-            profile_form = ProfileForm(request.POST or None, request.FILES or None, instance=instance)
-            if user_form.is_valid() and profile_form.is_valid():
-                profile = profile_form.save(commit=False)
-                profile.bio = request.POST['bio']
-                profile.gender = request.POST['gender']
+    
+    user= User.objects.get(pk = user_id)
+    instance, created = Profile.objects.get_or_create(user=user)
+    article_count = Article.objects.all().filter(author=user).count()
+    
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST or None, instance= user)
+        profile_form = ProfileForm(request.POST or None, request.FILES or None, instance=instance)
+        if user_form.is_valid() and profile_form.is_valid():
+            profile = profile_form.save(commit=False)
+            profile.bio = request.POST['bio']
+            profile.gender = request.POST['gender']
 
-                
-                print("photo", profile.profile_image)
-                user_form.save()
-                profile.save() 
-                
-                return redirect('profile', user_id)
             
-            context = {
-                
-                'user_form': user_form,
-                'profile_form': profile_form
-            }
-            return render(request, 'authors/profile.html', context)
+            print("photo", profile.profile_image)
+            user_form.save()
+            profile.save() 
             
-        else:
-            user_form = UserUpdateForm(request.POST or None, instance=user)
-            profile_form = ProfileForm(request.POST or None, request.FILES or None, instance=instance)
+            return redirect('profile', user_id)
+        
+        context = {
             
-            
-            context = {
-                'profile_user': user,
-                'logged_user_id': user_id,
-                'sport_progress': progress_tracker(Article,user, "Sport"),
-                'travel_progress': progress_tracker(Article,user,  "Travel"),
-                'nature_progress': progress_tracker(Article,user,  "Nature"),
-                'lifestyle_progress': progress_tracker(Article,user,  "Lifestyle"),
-                'other_progress': progress_tracker(Article,user,  "Other"),
-                'article_count': article_count,
-                'user_form': user_form,
-                'profile_form': profile_form,
-            }
-            
-            return render(request, 'authors/profile.html', context)
+            'user_form': user_form,
+            'profile_form': profile_form
+        }
+        return render(request, 'authors/profile.html', context)
+        
     else:
-        messages.success(request,"You must be signed in to access this page")
-        return redirect('home')
+        user_form = UserUpdateForm(request.POST or None, instance=user)
+        profile_form = ProfileForm(request.POST or None, request.FILES or None, instance=instance)
+        
+        
+        context = {
+            'profile_user': user,
+            'logged_user_id': user_id,
+            'sport_progress': progress_tracker(Article,user, "Sport"),
+            'travel_progress': progress_tracker(Article,user,  "Travel"),
+            'nature_progress': progress_tracker(Article,user,  "Nature"),
+            'lifestyle_progress': progress_tracker(Article,user,  "Lifestyle"),
+            'other_progress': progress_tracker(Article,user,  "Other"),
+            'article_count': article_count,
+            'user_form': user_form,
+            'profile_form': profile_form,
+        }
+        
+        return render(request, 'authors/profile.html', context)
+ 
 

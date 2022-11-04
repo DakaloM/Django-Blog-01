@@ -1,6 +1,6 @@
 def progress_tracker(article,  user,category):
     
-    total_count = article.objects.all().count()
+    total_count = article.objects.all().filter(author=user).count()
     count = article.objects.all().filter(author=user, category=category).count()
     
     if total_count > 0:
@@ -9,4 +9,4 @@ def progress_tracker(article,  user,category):
     else:
         progress = 0 
     
-    return progress
+    return round(progress,2)

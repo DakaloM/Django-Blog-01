@@ -86,15 +86,7 @@
     margin-bottom: 15px;
 }
 
-.articles-stats span,
-.likes-stats span,
-.comments-stats span{
-    background-color: orange;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    padding: 2px 6px 3px 5px;
-}
+
 
 
 .social-icons-container {

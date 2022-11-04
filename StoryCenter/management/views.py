@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from articles.models import Article
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 # Create your views here.
 
 def admin(request, user_id):
@@ -18,13 +19,28 @@ def admin(request, user_id):
                 else:
                     continue
             
+            #pagination
+            article_paginator = Paginator(article_list, per_page=5)
+            user_paginator = Paginator(user_list, per_page=8)
+            
+            user_page_number = request.GET.get('userpage',1)
+            article_page_number = request.GET.get('articlepage',1)
+            
+            article_page_obj = article_paginator.get_page(article_page_number)
+            user_page_obj = user_paginator.get_page(user_page_number)
+            
+            
             number_of_articles = article_list.count()
             number_of_authors = user_list.count()
             number_of_staff = len(superuser_list)
             
             context = {
-                'article_list': article_list,
-                'user_list': user_list,
+                'user_page_number': int(user_page_number),
+                'article_page_number': int(article_page_number),
+                'article_paginator': article_paginator,
+                'user_paginator': user_paginator,
+                'article_list': article_page_obj.object_list,
+                'user_list': user_page_obj.object_list,
                 'superuser_list': superuser_list,
                 'number_of_articles': number_of_articles,
                 'number_of_authors': number_of_authors,
